@@ -1,0 +1,32 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+const relatedServices = services.filter((item) => item.slug !== service.slug).slice(0, 2);
+---
+
+<SiteLayout title={service.name} description={service.short}>
+  <section class={`detail-hero detail-${service.accent} section-wrap`}>
+    <a class="back-link" href="/servizi/">← Tutte le lavorazioni</a>
+    <p class="eyebrow">{service.number} / Tecniche di stampa</p>
+    <h1>{service.name}<span>.</span></h1>
+    <p class="page-lead">{service.description}</p>
+    <a class="button button-dark" href="/contatti/">Parliamo del tuo progetto <span aria-hidden="true">↗</span></a>
+    <span class="detail-symbol" aria-hidden="true">{service.number === '01' ? '✳' : service.number === '02' ? '◉' : service.number === '03' ? '▧' : '✣'}</span>
+  </section>
+  <section class="detail-points section-wrap">
+    <p class="eyebrow">Possiamo aiutarti con</p>
+    <ul>{service.details.map((detail) => <li><span aria-hidden="true">＋</span>{detail}</li>)}</ul>
+  </section>
+  <section class="related section-wrap">
+    <div class="section-heading"><div><p class="eyebrow">Esplora anche</p><h2>Altre lavorazioni</h2></div></div>
+    <div class="related-grid">
+      {relatedServices.map((item) => <a href={`/servizi/${item.slug}/`}><span>{item.number} / {item.name}</span><b aria-hidden="true">↗</b></a>)}
+    </div>
+  </section>
+</SiteLayout>

@@ -1,0 +1,25 @@
+---
+const links = [
+  { href: '/servizi/', label: 'Lavorazioni' },
+  { href: '/lavori/', label: 'I nostri lavori' },
+  { href: '/chi-siamo/', label: 'Chi siamo' },
+];
+---
+
+<header class="site-header">
+  <a class="wordmark" href="/" aria-label="Todaro Company, home">
+    <span class="wordmark-name">todaro<span>®</span></span>
+    <span class="wordmark-caption">company · stampa creativa</span>
+  </a>
+  <nav class="desktop-nav" aria-label="Navigazione principale">
+    {links.map((link) => <a href={link.href}>{link.label}</a>)}
+  </nav>
+  <a class="button button-dark header-cta" href="/contatti/">Parliamo del tuo progetto <span aria-hidden="true">↗</span></a>
+  <details class="mobile-menu">
+    <summary aria-label="Apri il menu"><span></span><span></span></summary>
+    <nav aria-label="Navigazione mobile">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+      <a href="/contatti/">Richiedi un preventivo</a>
+    </nav>
+  </details>
+</header>

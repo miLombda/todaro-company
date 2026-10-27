@@ -1,0 +1,31 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const address = 'Via Madonnelle 27, 80038 Pomigliano d’Arco NA';
+const mapUrl = 'https://maps.google.com/?q=Via+Madonnelle+27,+80038+Pomigliano+d%27Arco+NA';
+---
+
+<SiteLayout title="Contatti e preventivi" description="Contatta Todaro Company per un preventivo: telefonaci, scrivici su WhatsApp o vieni a trovarci a Pomigliano d'Arco.">
+  <section class="page-hero contact-page-hero section-wrap">
+    <p class="eyebrow">Raccontaci la tua idea</p>
+    <h1>Ci stampiamo<br /><span>un caffè?</span></h1>
+    <p class="page-lead">Parlaci del tuo progetto: ti aiutiamo a trovare la tecnica e il supporto più adatti.</p>
+  </section>
+  <section class="contact-grid section-wrap">
+    <div class="contact-card contact-card-dark">
+      <p class="eyebrow">Preventivi e informazioni</p>
+      <h2>Un contatto<br />alla volta.</h2>
+      <a href="tel:+390818846481"><span>Telefono</span><strong>+39 081 884 64 81</strong><b aria-hidden="true">↗</b></a>
+      <a href="https://wa.me/393454700420" target="_blank" rel="noreferrer"><span>WhatsApp</span><strong>+39 345 470 04 20</strong><b aria-hidden="true">↗</b></a>
+      <a href="mailto:todarocompany@libero.it"><span>Email</span><strong>todarocompany@libero.it</strong><b aria-hidden="true">↗</b></a>
+    </div>
+    <div class="contact-card contact-card-map">
+      <p class="eyebrow">Vieni a trovarci</p>
+      <h2>Ci trovi<br />qui.</h2>
+      <p class="address">{address}</p>
+      <a class="button button-dark" href={mapUrl} target="_blank" rel="noreferrer">Apri Google Maps <span aria-hidden="true">↗</span></a>
+      <div class="map-art" aria-hidden="true"><span>NA</span><i>✳</i><b>40.91° N<br />14.39° E</b></div>
+    </div>
+  </section>
+  <p class="contact-hours section-wrap">Per le richieste di preventivo, indicaci il tipo di articolo, la quantità e la lavorazione desiderata. Ti risponderemo il prima possibile.</p>
+</SiteLayout>

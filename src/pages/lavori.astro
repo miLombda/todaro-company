@@ -1,0 +1,44 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { getProjects } from '../lib/sanity';
+
+const { configured, projects } = await getProjects();
+---
+
+<SiteLayout title="I nostri lavori" description="Una selezione di progetti realizzati da Todaro Company: scopri le lavorazioni e le idee stampate nel nostro laboratorio.">
+  <section class="page-hero works-page-hero section-wrap">
+    <p class="eyebrow">Progetti stampati con cura</p>
+    <h1>I nostri<br /><span>lavori.</span></h1>
+    <p class="page-lead">Ogni stampa nasce da un’idea diversa. Qui raccogliamo i progetti realizzati nel nostro laboratorio.</p>
+  </section>
+  <section class="works-gallery section-wrap" aria-label="Galleria dei lavori">
+    {projects.length > 0 ? (
+      <div class="project-grid">
+        {projects.map((project) => (
+          <article class="project-card">
+            {project.videoUrl ? (
+              <video controls preload="metadata" poster={project.coverUrl || undefined} aria-label={`Video del progetto ${project.title}`}>
+                <source src={project.videoUrl} />
+                Il tuo browser non supporta la riproduzione video.
+              </video>
+            ) : project.coverUrl ? (
+              <img src={project.coverUrl} alt={project.coverAlt || project.title} loading="lazy" />
+            ) : (
+              <div class="project-placeholder" aria-hidden="true">TC<span>✳</span></div>
+            )}
+            <div class="project-caption"><div><p class="eyebrow">{project.technique}</p><h2>{project.title}</h2></div><p>{project.summary}</p></div>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="gallery-empty">
+        <span aria-hidden="true">✳</span>
+        <p class="eyebrow">{configured ? 'Nuovi progetti in arrivo' : 'La galleria è in preparazione'}</p>
+        <h2>{configured ? 'Presto nuovi lavori.' : 'Qui troverai i nostri lavori.'}</h2>
+        <p>{configured ? 'Stiamo preparando la prossima selezione. Nel frattempo, raccontaci cosa vorresti realizzare.' : 'La galleria verrà collegata all’area editoriale Sanity, così il team potrà pubblicare foto e video senza modificare il sito.'}</p>
+        <a class="text-link" href="/contatti/">Hai un progetto in mente? <span aria-hidden="true">↗</span></a>
+      </div>
+    )}
+  </section>
+  <section class="simple-cta"><p>Vuoi vedere la tua idea qui?</p><a class="button button-dark" href="/contatti/">Chiedi un preventivo <span aria-hidden="true">↗</span></a></section>
+</SiteLayout>

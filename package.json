@@ -1,0 +1,26 @@
+{
+  "name": "todaro-company",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "workspaces": [
+    "studio"
+  ],
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "studio": "npm run dev --workspace studio",
+    "studio:build": "npm run build --workspace studio"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/manrope": "^5.3.0",
+    "@fontsource/dm-mono": "^5.3.0",
+    "@sanity/client": "^8.11.0",
+    "astro": "^7.4.2"
+  }
+}
