@@ -1,0 +1,10 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+}
+
+const { variant = 'light' } = Astro.props;
+const src = variant === 'dark' ? '/logo-bianco.svg' : '/logo-nero.svg';
+---
+
+<img class="brand-logo" src={src} alt="" aria-hidden="true" />

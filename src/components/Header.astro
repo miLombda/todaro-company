@@ -1,4 +1,6 @@
 ---
+import BrandLogo from './BrandLogo.astro';
+
 const links = [
   { href: '/servizi/', label: 'Lavorazioni' },
   { href: '/lavori/', label: 'I nostri lavori' },
@@ -8,8 +10,7 @@ const links = [
 
 <header class="site-header">
   <a class="wordmark" href="/" aria-label="Todaro Company, home">
-    <span class="wordmark-name">todaro<span>®</span></span>
-    <span class="wordmark-caption">company · stampa creativa</span>
+    <BrandLogo variant="light" />
   </a>
   <nav class="desktop-nav" aria-label="Navigazione principale">
     {links.map((link) => <a href={link.href}>{link.label}</a>)}
