@@ -27,5 +27,70 @@ const mapUrl = 'https://maps.google.com/?q=Via+Madonnelle+27,+80038+Pomigliano+d
       <div class="map-art" aria-hidden="true"><span>NA</span><i>✳</i><b>40.91° N<br />14.39° E</b></div>
     </div>
   </section>
-  <p class="contact-hours section-wrap">Per le richieste di preventivo, indicaci il tipo di articolo, la quantità e la lavorazione desiderata. Ti risponderemo il prima possibile.</p>
+  <section class="quote-section section-wrap">
+    <div class="quote-heading">
+      <p class="eyebrow">Richiesta preventivo</p>
+      <h2>Raccontaci<br />il tuo progetto.</h2>
+      <p>Indicaci i dettagli che hai già. Ti ricontatteremo per parlarne insieme.</p>
+    </div>
+    <form
+      class="quote-form"
+      name="richiesta-preventivo"
+      method="POST"
+      action="/richiesta-inviata/"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <div class="form-honeypot" aria-hidden="true">
+        <label>Non compilare questo campo: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </div>
+
+      <div class="form-fields">
+        <label class="form-field">
+          <span>Nome e cognome <b aria-hidden="true">*</b></span>
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+        <label class="form-field">
+          <span>Email <b aria-hidden="true">*</b></span>
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+        <label class="form-field">
+          <span>Telefono (facoltativo)</span>
+          <input type="tel" name="phone" autocomplete="tel" />
+        </label>
+        <label class="form-field">
+          <span>Tipo di capo o supporto</span>
+          <input type="text" name="support" placeholder="Es. t-shirt, felpe, borse..." />
+        </label>
+        <label class="form-field">
+          <span>Quantità indicativa</span>
+          <input type="text" name="quantity" placeholder="Es. 50 pezzi" />
+        </label>
+        <label class="form-field">
+          <span>Lavorazione</span>
+          <select name="technique">
+            <option value="">Seleziona una lavorazione</option>
+            <option value="Serigrafia">Serigrafia</option>
+            <option value="DTF">DTF</option>
+            <option value="Stampa digitale / plotter">Stampa digitale / plotter</option>
+            <option value="Applicazioni e Brik">Applicazioni e Brik</option>
+            <option value="Da valutare insieme">Da valutare insieme</option>
+          </select>
+        </label>
+        <label class="form-field form-field-wide">
+          <span>Descrivi il progetto <b aria-hidden="true">*</b></span>
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+      </div>
+
+      <label class="privacy-check">
+        <input type="checkbox" name="presa-visione-privacy" value="si" required />
+        <span>Ho letto l’<a href="/privacy/">informativa privacy</a> e so come verranno trattati i dati inviati con questa richiesta. <b aria-hidden="true">*</b></span>
+      </label>
+
+      <p class="form-required-note">* Campi obbligatori</p>
+      <button class="button button-dark form-submit" type="submit">Invia richiesta <span aria-hidden="true">↗</span></button>
+    </form>
+  </section>
+  <p class="contact-hours section-wrap">Per richieste urgenti puoi chiamarci al <a href="tel:+390818846481">+39 081 884 64 81</a>.</p>
 </SiteLayout>
