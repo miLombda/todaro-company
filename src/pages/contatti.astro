@@ -37,9 +37,8 @@ const mapUrl = 'https://maps.google.com/?q=Via+Madonnelle+27,+80038+Pomigliano+d
       class="quote-form"
       name="richiesta-preventivo"
       method="POST"
-      action="/richiesta-inviata/"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
+      action="/.netlify/functions/richiesta-preventivo"
+      enctype="application/x-www-form-urlencoded"
     >
       <div class="form-honeypot" aria-hidden="true">
         <label>Non compilare questo campo: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
@@ -83,10 +82,7 @@ const mapUrl = 'https://maps.google.com/?q=Via+Madonnelle+27,+80038+Pomigliano+d
         </label>
       </div>
 
-      <label class="privacy-check">
-        <input type="checkbox" name="presa-visione-privacy" value="si" required />
-        <span>Ho letto l’<a href="/privacy/">informativa privacy</a> e so come verranno trattati i dati inviati con questa richiesta. <b aria-hidden="true">*</b></span>
-      </label>
+      <p class="form-privacy-note">Consulta l’<a href="/privacy/">informativa privacy</a> per sapere come verranno trattati i dati inviati con questa richiesta.</p>
 
       <p class="form-required-note">* Campi obbligatori</p>
       <button class="button button-dark form-submit" type="submit">Invia richiesta <span aria-hidden="true">↗</span></button>
