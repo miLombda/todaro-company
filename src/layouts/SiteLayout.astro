@@ -20,6 +20,63 @@ const { title, description } = Astro.props;
     <meta name="theme-color" content="#F8F9FB" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Todaro Company</title>
+    <script is:inline>
+      const root = document.documentElement;
+      const themePreferenceKey = 'todaro-theme';
+      const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      let savedTheme = null;
+
+      try {
+        savedTheme = localStorage.getItem(themePreferenceKey);
+      } catch (error) {
+        console.error('Impossibile leggere la preferenza del tema.', error);
+      }
+
+      let hasExplicitPreference = savedTheme === 'dark' || savedTheme === 'light';
+      const applyTheme = (theme) => {
+        root.dataset.theme = theme;
+        themeColor?.setAttribute('content', theme === 'dark' ? '#111923' : '#F8F9FB');
+
+        document.querySelectorAll('.theme-toggle').forEach((button) => {
+          button.setAttribute('aria-pressed', String(theme === 'dark'));
+          button.setAttribute('title', theme === 'dark' ? 'Attiva modalità chiara' : 'Attiva modalità scura');
+        });
+
+        document.querySelectorAll('.brand-logo[data-logo-light][data-logo-dark]').forEach((logo) => {
+          const src = theme === 'dark' ? logo.dataset.logoDark : logo.dataset.logoLight;
+          if (src) logo.setAttribute('src', src);
+        });
+      };
+
+      applyTheme(hasExplicitPreference ? savedTheme : systemPreference.matches ? 'dark' : 'light');
+
+      document.addEventListener('DOMContentLoaded', () => applyTheme(root.dataset.theme));
+      document.addEventListener('click', (event) => {
+        if (!(event.target instanceof Element)) return;
+        if (!event.target.closest('.theme-toggle')) return;
+
+        hasExplicitPreference = true;
+        const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        applyTheme(theme);
+
+        try {
+          localStorage.setItem(themePreferenceKey, theme);
+        } catch (error) {
+          console.error('Impossibile salvare la preferenza del tema.', error);
+        }
+      });
+
+      systemPreference.addEventListener('change', (event) => {
+        if (!hasExplicitPreference) applyTheme(event.matches ? 'dark' : 'light');
+      });
+
+      window.addEventListener('storage', (event) => {
+        if (event.key !== themePreferenceKey && event.key !== null) return;
+        hasExplicitPreference = event.newValue === 'dark' || event.newValue === 'light';
+        applyTheme(hasExplicitPreference ? event.newValue : systemPreference.matches ? 'dark' : 'light');
+      });
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#contenuto">Vai al contenuto</a>

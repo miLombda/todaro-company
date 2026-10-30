@@ -5,6 +5,7 @@ interface Props {
 
 const { variant = 'light' } = Astro.props;
 const src = variant === 'dark' ? '/logo-bianco.svg' : '/logo-nero.svg';
+const darkSrc = variant === 'dark' ? src : '/logo-dark.png';
 ---
 
-<img class="brand-logo" src={src} alt="" aria-hidden="true" />
+<img class="brand-logo" src={src} data-logo-light={src} data-logo-dark={darkSrc} alt="" aria-hidden="true" />

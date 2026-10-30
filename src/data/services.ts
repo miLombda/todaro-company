@@ -49,4 +49,84 @@ export const services = [
     details: ['Applicazione decorativa su abbigliamento', 'Valutazione del capo e della grafica', 'Possibilità di abbinare più tecniche'],
     accent: 'pink',
   },
+  {
+    slug: 'serigrafia-puff',
+    number: '06',
+    name: 'Serigrafia Puff (Effetto Gonfiato)',
+    short: 'Effetto tridimensionale gonfiato, morbido al tatto e ideale per loghi e scritte in rilievo.',
+    description:
+      'Una particolare tecnica serigrafica che, attraverso il calore, crea un effetto tridimensionale gonfiato e morbido al tatto. Ideale per loghi e scritte in rilievo, dona ai capi un aspetto originale e moderno.',
+    details: ['Effetto tridimensionale gonfiato', 'Superficie morbida al tatto', 'Ideale per loghi e scritte in rilievo'],
+    accent: 'acid',
+  },
+  {
+    slug: 'serigrafia-spessorata',
+    number: '07',
+    name: 'Serigrafia Spessorata (High Density)',
+    short: 'Grafiche serigrafiche in rilievo con spessori definiti, bordi precisi e un effetto tridimensionale compatto.',
+    description:
+      'Tecnica di stampa serigrafica che permette di ottenere grafiche in rilievo con spessori definiti, bordi precisi e un effetto tridimensionale compatto. Perfetta per valorizzare loghi, scritte e dettagli su capi di abbigliamento premium.',
+    details: ['Spessori definiti e bordi precisi', 'Effetto tridimensionale compatto', 'Adatta a capi di abbigliamento premium'],
+    accent: 'blue',
+  },
+  {
+    slug: 'flock-taglio-plotter',
+    number: '08',
+    name: 'Flock da Taglio Plotter',
+    short: 'Materiale termoadesivo dall’effetto vellutato, morbido e leggermente in rilievo.',
+    description:
+      'Personalizzazione realizzata con uno speciale materiale termoadesivo dall’effetto vellutato. La superficie morbida e leggermente in rilievo conferisce a loghi e scritte un aspetto elegante e ricercato.',
+    details: ['Materiale termoadesivo da taglio plotter', 'Superficie morbida dall’effetto vellutato', 'Leggero effetto in rilievo'],
+    accent: 'pink',
+  },
+  {
+    slug: 'brick-3d-taglio-plotter',
+    number: '09',
+    name: 'Brick 3D da Taglio Plotter',
+    short: 'Materiale termoadesivo ad alto spessore per loghi e scritte tridimensionali.',
+    description:
+      'Speciale materiale termoadesivo ad alto spessore che permette di creare scritte e loghi tridimensionali con una superficie compatta e bordi ben definiti. Ideale per personalizzazioni moderne e di forte impatto visivo.',
+    details: ['Materiale termoadesivo ad alto spessore', 'Superficie compatta e bordi definiti', 'Loghi e scritte tridimensionali'],
+    accent: 'orange',
+  },
+  {
+    slug: 'stampa-glitter',
+    number: '10',
+    name: 'Stampa Glitter (serigrafia e plotter da taglio)',
+    short: 'Materiali con particelle brillanti per grafiche luminose e scintillanti.',
+    description:
+      'Personalizzazione con materiali speciali contenenti particelle brillanti che donano alle grafiche un effetto luminoso e scintillante. Perfetta per scritte, loghi e dettagli decorativi.',
+    details: ['Particelle brillanti e scintillanti', 'Serigrafia e plotter da taglio', 'Ideale per loghi e dettagli decorativi'],
+    accent: 'acid',
+  },
+  {
+    slug: 'stampa-rifrangente',
+    number: '11',
+    name: 'Stampa Rifrangente',
+    short: 'Materiali che riflettono la luce per personalizzazioni creative, sportive e streetwear.',
+    description:
+      'Lavorazione realizzata con materiali che riflettono la luce quando vengono illuminati, creando un particolare effetto visivo. Ideale per abbigliamento streetwear, sportivo e personalizzazioni creative.',
+    details: ['Materiali riflettenti alla luce', 'Per abbigliamento streetwear e sportivo', 'Effetto visivo distintivo'],
+    accent: 'blue',
+  },
+  {
+    slug: 'stampa-metallizzata',
+    number: '12',
+    name: 'Stampa Metallizzata',
+    short: 'Finitura metallica, disponibile in tonalità come oro e argento.',
+    description:
+      'Finitura speciale che dona alle grafiche un effetto metallico, disponibile in diverse tonalità come oro e argento. Ideale per creare loghi e scritte dall’aspetto elegante e distintivo.',
+    details: ['Finitura dall’effetto metallico', 'Disponibile in tonalità come oro e argento', 'Ideale per loghi e scritte eleganti'],
+    accent: 'orange',
+  },
+  {
+    slug: 'serigrafia-crack',
+    number: '13',
+    name: 'Serigrafia Crack (Effetto Screpolato)',
+    short: 'Effetto screpolato e vissuto, adatto a collezioni streetwear e abbigliamento vintage.',
+    description:
+      'Particolare lavorazione serigrafica che crea un effetto screpolato sulla superficie della stampa. Le caratteristiche crepe conferiscono alla grafica un aspetto invecchiato e originale, perfetto per collezioni streetwear e abbigliamento vintage.',
+    details: ['Effetto screpolato sulla stampa', 'Aspetto invecchiato e originale', 'Per collezioni streetwear e vintage'],
+    accent: 'pink',
+  },
 ];
